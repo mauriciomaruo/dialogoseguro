@@ -153,10 +153,15 @@ function Index() {
 
   function erro(e: unknown) {
     const msg = e instanceof Error ? e.message : "";
-    if (msg.includes("429")) return toast.error("Muitas pessoas ao mesmo tempo. Tente em instantes.");
-    if (msg.includes("402")) return toast.error("Os créditos de IA acabaram. Recarregue para continuar.");
-    toast.error("Não consegui preparar o ritual agora. Tente novamente.");
+    if (msg.includes("429")) {
+      toast.error("Muitas pessoas ao mesmo tempo. Tente em instantes.");
+    } else if (msg.includes("402")) {
+      toast.error("Os créditos de IA acabaram. Recarregue para continuar.");
+    } else {
+      toast.error("Não consegui preparar o ritual agora. Tente novamente.");
+    }
   }
+
 
   async function onAnalisar() {
     setLoading("analise");
