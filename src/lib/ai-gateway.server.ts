@@ -1,10 +1,8 @@
-import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+TypeScript
+import { createOpenAI } from "@ai-sdk/openai";
 
 export function createLovableAiGatewayProvider(apiKey: string) {
-  return createOpenAICompatible({
-    name: "lovable",
-    baseURL: "https://ai.gateway.lovable.dev/v1",
-    headers: { "Lovable-API-Key": apiKey },
-    supportsStructuredOutputs: true,
+  return createOpenAI({
+    apiKey: apiKey || process.env.OPENAI_API_KEY,
   });
 }
