@@ -1,4 +1,3 @@
-TypeScript
 import { createOpenAI } from "@ai-sdk/openai";
 
 export function createLovableAiGatewayProvider(apiKey: string) {
